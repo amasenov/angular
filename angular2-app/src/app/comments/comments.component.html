@@ -1,0 +1,15 @@
+<label>Comments list:</label>
+<input type="text" class="form-control" [(ngModel)]="commentText" placeholder="Type your comment">
+<button class="btn btn-primary" 
+[disabled]="!allowNewComment"
+(click)="onCreateComment()">Add Comment</button>
+<button class="btn btn-danger" 
+[disabled]="!allowNewComment"
+(click)="onRemoveComment()">Remove Comment</button>
+
+<div [className]="comment.type" *ngFor="let comment of comments">
+    <div class="panel-heading">Comment Id: {{comment.id}}</div>
+    <div class="panel-body">
+        Comment text: {{comment.value}}
+    </div>
+</div>
