@@ -11,6 +11,8 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found.component';
 import { CommentsComponent } from './comments/comments.component';
+import { LoginComponent } from './nav/login/login.component';
+import { RegisterComponent } from './nav/register/register.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -31,7 +33,9 @@ const appRoutes: Routes = [
     AboutComponent,
     ContactComponent,
     NotFoundComponent,
-    CommentsComponent
+    CommentsComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
