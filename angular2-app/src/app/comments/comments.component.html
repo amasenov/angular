@@ -1,12 +1,22 @@
 <label>Comments list:</label>
-<input type="text" class="form-control" [(ngModel)]="commentText" placeholder="Type your comment">
+<div class="input-group">
+    <select name="comments"[(ngModel)]="selectedComment" (ngModelChange)="onCommentSelect($event)" class="form-control selectpicker">
+      <option *ngFor="let ct of commentTypes" [ngValue]="ct">{{ct.name}}</option>
+    </select>
+    <textarea rows="4" class="form-control" [(ngModel)]="commentText" placeholder="Type your comment"> </textarea>
+</div><!-- /input-group -->
+<br/>
+<ul class="list-group">
+  <li *ngFor="let ct of commentTypes" [ngClass]="ct.listClass"><span class="badge">{{ct.total}}</span>{{ct.name}}</li>
+</ul>
+<br/>
 <button class="btn btn-primary" 
 [disabled]="!allowNewComment"
 (click)="onCreateComment()">Add Comment</button>
 <button class="btn btn-danger" 
 [disabled]="!allowNewComment"
 (click)="onRemoveComment()">Remove Comment</button>
-
+<hr/>
 <div [className]="comment.type" *ngFor="let comment of comments">
     <div class="panel-heading">Comment Id: {{comment.id}}</div>
     <div class="panel-body">

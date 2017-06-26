@@ -6,9 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  showAboutBody: Boolean = false;
+  btnTitle: String = 'Show';
+  constructor() {}
 
-  constructor() { }
-
+  onShowBody() {
+    if (this.showAboutBody) {
+      this.btnTitle = 'Hide';
+    } else {
+      this.btnTitle = 'Show';
+    }
+  }
   ngOnInit() {
   }
 
