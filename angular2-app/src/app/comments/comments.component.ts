@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { Comment } from './comment';
 
 @Component({
   selector: 'app-comments',
-  templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.css']
+  templateUrl: './comments.component.html'
 })
 export class CommentsComponent implements OnInit {
   commentTypes = [
