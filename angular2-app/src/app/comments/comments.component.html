@@ -18,7 +18,9 @@
 (click)="onRemoveComment()">Remove Comment</button>
 <hr/>
 <div [className]="comment.type" *ngFor="let comment of comments">
-    <div class="panel-heading">Comment Id: {{comment.id}}</div>
+    <div class="panel-heading">
+        <h3 class="panel-title">Comment Id: {{comment.id}}</h3>
+    </div>
     <div class="panel-body">
         Comment text: {{comment.value}}
     </div>

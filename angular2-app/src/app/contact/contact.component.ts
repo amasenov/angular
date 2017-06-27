@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactsComponent } from './contacts.component';
 
 @Component({
   selector: 'app-contact',
@@ -50,10 +51,54 @@ export class ContactComponent implements OnInit {
     {'name': 'Venezuela'}, {'name': 'Vietnam'}, {'name': 'Yemen'}, {'name': 'Zaire'}, {'name': 'Zambia'},
     {'name': 'Zimbabwe'}];
     selectedCountry = this.countries[0];
+    firstName = '';
+    lastName = '';
+    emailAddress = '';
+    phoneNumber = '';
+    addressName = '';
+    cityName = '';
+    zipCode = '';
+    websiteName = '';
+    commentText = '';
+    contactComments = [
+    new ContactsComponent(1, 'Aleksandar', 'Asenov', 'amasenov@outlook.com', '555-555-555', 'Straat',
+    'The Hague', 'Netherlands', '5555', 'www.amasenov.com', 'This works fine!')
+    ];
+    successMsg: Boolean = false;
+    errorMsg: Boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSentComment() {
+    if (this.firstName === '' || this.lastName === '' || this.emailAddress === '' || this.commentText === '' || this.phoneNumber === '' || this.selectedCountry === this.countries[0]) {
+      this.errorMsg = true;
+    } else {
+      this.errorMsg = false;
+      this.successMsg = true;
+      this.onCreateComment();
+    }
+  }
+
+  onCreateComment() {
+    this.contactComments.push(new ContactsComponent((this.contactComments.length + 1), this.firstName, this.lastName, this.emailAddress,
+    this.phoneNumber, this.addressName, this.cityName, this.selectedCountry.name, this.zipCode, this.websiteName, this.commentText));
+    this.clearCurrentValues();
+  }
+
+  clearCurrentValues() {
+    this.selectedCountry = this.countries[0];
+    this.firstName = '';
+    this.lastName = '';
+    this.emailAddress = '';
+    this.phoneNumber = '';
+    this.addressName = '';
+    this.cityName = '';
+    this.zipCode = '';
+    this.websiteName = '';
+    this.commentText = '';
   }
 
 }

@@ -39,33 +39,33 @@ export class CommentsComponent implements OnInit {
 
   onCreateComment(){
     this.comments.push(new Comment((this.comments.length + 1), this.commentText, this.selectedComment.typ));
-    if (this.comments[this.comments.length-1].type==='panel panel-primary'){
+    if (this.comments[this.comments.length - 1].type === 'panel panel-primary') {
       this.commentTypes[0].total++;
-    } else if (this.comments[this.comments.length-1].type==='panel panel-success'){
+    } else if (this.comments[this.comments.length - 1].type === 'panel panel-success') {
       this.commentTypes[1].total++;
-    } else if (this.comments[this.comments.length-1].type==='panel panel-info'){
+    } else if (this.comments[this.comments.length - 1].type === 'panel panel-info') {
       this.commentTypes[2].total++;
-    } else if (this.comments[this.comments.length-1].type==='panel panel-warning'){
+    } else if (this.comments[this.comments.length - 1].type === 'panel panel-warning') {
       this.commentTypes[3].total++;
-    } else if (this.comments[this.comments.length-1].type==='panel panel-danger'){
+    } else if (this.comments[this.comments.length - 1].type === 'panel panel-danger') {
       this.commentTypes[4].total++;
-    } else if (this.comments[this.comments.length-1].type==='panel panel-default'){
+    } else if (this.comments[this.comments.length - 1].type === 'panel panel-default') {
       this.commentTypes[5].total++;
     }
   }
 
   onRemoveComment(){
-    if (this.comments[this.comments.length-1].type==='panel panel-primary'){
+    if (this.comments[this.comments.length - 1].type === 'panel panel-primary') {
       this.commentTypes[0].total--;
-    } else if (this.comments[this.comments.length-1].type==='panel panel-success'){
+    } else if (this.comments[this.comments.length - 1].type === 'panel panel-success') {
       this.commentTypes[1].total--;
-    } else if (this.comments[this.comments.length-1].type==='panel panel-info'){
+    } else if (this.comments[this.comments.length - 1].type === 'panel panel-info') {
       this.commentTypes[2].total--;
-    } else if (this.comments[this.comments.length-1].type==='panel panel-warning'){
+    } else if (this.comments[this.comments.length - 1].type === 'panel panel-warning') {
       this.commentTypes[3].total--;
-    } else if (this.comments[this.comments.length-1].type==='panel panel-danger'){
+    } else if (this.comments[this.comments.length - 1].type === 'panel panel-danger') {
       this.commentTypes[4].total--;
-    } else if (this.comments[this.comments.length-1].type==='panel panel-default'){
+    } else if (this.comments[this.comments.length - 1].type === 'panel panel-default') {
       this.commentTypes[5].total--;
     }
     this.comments.pop();
