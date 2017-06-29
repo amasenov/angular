@@ -23,7 +23,13 @@ export class CommentsComponent implements OnInit {
     new Comment(1, 'Comment 1', 'panel panel-success'),
     new Comment(2, 'Comment 2', 'panel panel-danger')
     ];
-
+  progresComments = [
+    {'name': 'primary', 'class': 'progress-bar progress-bar-primary', 'width': '0%'},
+    {'name': 'success', 'class': 'progress-bar progress-bar-success', 'width': '50%'},
+    {'name': 'info', 'class': 'progress-bar progress-bar-info', 'width': '0%'},
+    {'name': 'warning', 'class': 'progress-bar progress-bar-warning', 'width': '0%'},
+    {'name': 'danger', 'class': 'progress-bar progress-bar-danger', 'width': '50%'}
+  ];
   constructor() {
     setTimeout(() => {
       this.allowNewComment = true;
@@ -39,6 +45,17 @@ export class CommentsComponent implements OnInit {
 
   onCreateComment(){
     this.comments.push(new Comment((this.comments.length + 1), this.commentText, this.selectedComment.typ));
+    this.addTotal();
+    this.updateProgressBar();
+  }
+
+  onRemoveComment(){
+    this.removeTotal();
+    this.comments.pop();
+    this.updateProgressBar();
+  }
+
+  addTotal() {
     if (this.comments[this.comments.length - 1].type === 'panel panel-primary') {
       this.commentTypes[0].total++;
     } else if (this.comments[this.comments.length - 1].type === 'panel panel-success') {
@@ -54,7 +71,7 @@ export class CommentsComponent implements OnInit {
     }
   }
 
-  onRemoveComment(){
+  removeTotal() {
     if (this.comments[this.comments.length - 1].type === 'panel panel-primary') {
       this.commentTypes[0].total--;
     } else if (this.comments[this.comments.length - 1].type === 'panel panel-success') {
@@ -68,6 +85,17 @@ export class CommentsComponent implements OnInit {
     } else if (this.comments[this.comments.length - 1].type === 'panel panel-default') {
       this.commentTypes[5].total--;
     }
-    this.comments.pop();
+  }
+
+  updateProgressBar() {
+    let n = 0;
+    let m = 0;
+    for (let c of this.commentTypes){
+      m += c.total
+    }
+    for (let c of this.commentTypes){
+      this.progresComments[n].width = `${(c.total*100)/m}%`;
+      n++;
+    }
   }
 }

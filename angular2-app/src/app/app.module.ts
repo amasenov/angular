@@ -13,6 +13,7 @@ import { NotFoundComponent } from './not-found.component';
 import { CommentsComponent } from './comments/comments.component';
 import { LoginComponent } from './nav/login/login.component';
 import { RegisterComponent } from './nav/register/register.component';
+import { MainComponent } from './main/main.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     NotFoundComponent,
     CommentsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

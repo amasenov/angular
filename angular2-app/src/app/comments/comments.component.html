@@ -9,7 +9,12 @@
 <ul class="list-group">
   <li *ngFor="let ct of commentTypes" [ngClass]="ct.listClass"><span class="badge">{{ct.total}}</span>{{ct.name}}</li>
 </ul>
-<br/>
+
+<div class="progress">
+  <div  *ngFor="let p of progresComments" class="{{p.class}}" [ngStyle]="{'width': p.width}">
+    <span class="sr-only">35% Complete ({{p.name}})</span>
+  </div>
+</div>
 <button class="btn btn-primary" 
 [disabled]="!allowNewComment"
 (click)="onCreateComment()">Add Comment</button>
