@@ -19,8 +19,8 @@
         <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown" [ngClass]="{'open': showUserMenu}">
-          <a (click)="showUserMenu = !showUserMenu;" [ngStyle]="{ 'aria-expanded': showUserMenu }" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Users <span class="caret"></span></a>
+        <li class="dropdown" [ngClass]="{'open': showUserMenu}" (mouseover)="showUserMenu = true;" (mouseout)="showUserMenu=false;">
+          <a [ngStyle]="{ 'aria-expanded': showUserMenu }" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Users <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a (click)="onOpenModal('login');">Log in</a></li>
             <li role="separator" class="divider"></li>

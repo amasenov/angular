@@ -60,7 +60,8 @@ export class ContactComponent implements OnInit {
     zipCode = '';
     websiteName = '';
     commentText = '';
-    contactComments = [
+    currentComment: ContactsComponent;
+    contactComments: ContactsComponent[] = [
     new ContactsComponent(1, 'Aleksandar', 'Asenov', 'amasenov@outlook.com', '555-555-555', 'Straat',
     'The Hague', 'Netherlands', '5555', 'www.amasenov.com', 'This works fine!')
     ];
@@ -69,8 +70,7 @@ export class ContactComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   onSentComment() {
     if (this.firstName === '' || this.lastName === '' || this.emailAddress === '' || this.commentText === '' || this.phoneNumber === '' || this.selectedCountry === this.countries[0]) {

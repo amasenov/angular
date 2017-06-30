@@ -17,7 +17,7 @@ export class CommentsComponent implements OnInit {
                   {'name': 'Default', 'typ': 'panel panel-default', 'listClass': 'list-group-item list-group-item-default', 'total': 0}];
   selectedComment = this.commentTypes[0];
   showCommentType: Boolean = false;
-  allowNewComment = false;
+  allowNewComment = true;
   commentText = '';
   comments = [
     new Comment(1, 'Comment 1', 'panel panel-success'),
@@ -31,9 +31,9 @@ export class CommentsComponent implements OnInit {
     {'name': 'danger', 'class': 'progress-bar progress-bar-danger', 'width': '50%'}
   ];
   constructor() {
-    setTimeout(() => {
+    /* setTimeout(() => {
       this.allowNewComment = true;
-    }, 2000);
+    }, 2000); */
   }
   ngOnInit() {
   }
@@ -43,13 +43,21 @@ export class CommentsComponent implements OnInit {
     // alert(typ.name);
   }
 
-  onCreateComment(){
+  onCommentChange(intext) {
+    if (intext) {
+      this.allowNewComment = true;
+    } else {
+      this.allowNewComment = false;
+    }
+  }
+
+  onCreateComment() {
     this.comments.push(new Comment((this.comments.length + 1), this.commentText, this.selectedComment.typ));
     this.addTotal();
     this.updateProgressBar();
   }
 
-  onRemoveComment(){
+  onRemoveComment() {
     this.removeTotal();
     this.comments.pop();
     this.updateProgressBar();

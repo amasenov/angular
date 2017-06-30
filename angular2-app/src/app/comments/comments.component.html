@@ -3,7 +3,8 @@
     <select name="comments" [(ngModel)]="selectedComment" (ngModelChange)="onCommentSelect($event)" class="form-control selectpicker">
       <option *ngFor="let ct of commentTypes" [ngValue]="ct">{{ct.name}}</option>
     </select>
-    <textarea rows="4" class="form-control" [(ngModel)]="commentText" placeholder="Type your comment"> </textarea>
+    <textarea rows="4" class="form-control" [(ngModel)]="commentText" (ngModelChange)="onCommentChange($event)" placeholder="Type your comment"> </textarea>
+    <div *ngIf="!allowNewComment" class="alert alert-danger" role="alert">Please fill in the textarea.</div>
 </div><!-- /input-group -->
 <br/>
 <ul class="list-group">
@@ -12,14 +13,14 @@
 
 <div class="progress">
   <div  *ngFor="let p of progresComments" class="{{p.class}}" [ngStyle]="{'width': p.width}">
-    <span class="sr-only">35% Complete ({{p.name}})</span>
+    <span class="sr-only">{{p.width}} Complete ({{p.name}})</span>
   </div>
 </div>
 <button class="btn btn-primary" 
 [disabled]="!allowNewComment"
-(click)="onCreateComment()">Add Comment</button>
+(click)="onCreateComment()"
+(mouseover)="onCommentChange()">Add Comment</button>
 <button class="btn btn-danger" 
-[disabled]="!allowNewComment"
 (click)="onRemoveComment()">Remove Comment</button>
 <hr/>
 <div [className]="comment.type" *ngFor="let comment of comments">
