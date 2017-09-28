@@ -3,7 +3,7 @@
     <select name="comments" [(ngModel)]="selectedComment" (ngModelChange)="onCommentSelect($event)" class="form-control selectpicker">
       <option *ngFor="let ct of commentTypes" [ngValue]="ct">{{ct.name}}</option>
     </select>
-    <textarea rows="4" class="form-control" [(ngModel)]="commentText" (ngModelChange)="onCommentChange($event)" placeholder="Type your comment"> </textarea>
+    <textarea rows="4" class="form-control" [(ngModel)]="commentText" (ngModelChange)="onCommentChange()" placeholder="Type your comment"> </textarea>
     <div *ngIf="!allowNewComment" class="alert alert-danger" role="alert">Please fill in the textarea.</div>
 </div><!-- /input-group -->
 <br/>

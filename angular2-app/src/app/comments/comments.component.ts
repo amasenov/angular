@@ -43,8 +43,8 @@ export class CommentsComponent implements OnInit {
     // alert(typ.name);
   }
 
-  onCommentChange(intext) {
-    if (intext) {
+  onCommentChange() {
+    if (this.commentText) {
       this.allowNewComment = true;
     } else {
       this.allowNewComment = false;
