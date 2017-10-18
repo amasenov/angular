@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingsService } from '../../services/settings.service';
+import { Router } from '@angular/router';
+import { Settings } from '../../models/Settings';
 
 @Component({
   selector: 'app-settings',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
+  settings: Settings;
 
-  constructor() { }
+  constructor(
+    public settingsService: SettingsService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.settings = this.settingsService.getSettings();
+  }
+
+  onSubmit() {
+    this.settingsService.changeSettings(this.settings);
+    this.router.navigate(['/settings']);
   }
 
 }
