@@ -17,7 +17,7 @@ export class UsersComponent {
     },
     {
       id: 3,
-      name: 'Ivan'
+      name: 'Maria'
     }
   ];
 }
