@@ -8,24 +8,24 @@ export class DropdownDirective {
 
     constructor (private el: ElementRef, private renderer: Renderer2) {}
 
-    // @HostListener('click') toggleOpen() {
-    //     this.isOpen = !this.isOpen;
+    @HostListener('click') toggleOpen() {
+        this.isOpen = !this.isOpen;
+        const part = this.el.nativeElement.querySelector('.dropdown-menu');
+        if (this.isOpen) {
+            this.renderer.addClass(part, 'show');
+        } else {
+            this.renderer.removeClass(part, 'show');
+        }
+    }
+
+    // @HostListener('mouseenter') toggleShow() {
     //     const part = this.el.nativeElement.querySelector('.dropdown-menu');
-    //     if (this.isOpen) {
-    //         this.renderer.addClass(part, 'show');
-    //     } else {
-    //         this.renderer.removeClass(part, 'show');
-    //     }
+    //     this.renderer.addClass(part, 'show');
     // }
 
-    @HostListener('mouseenter') toggleShow() {
-        const part = this.el.nativeElement.querySelector('.dropdown-menu');
-        this.renderer.addClass(part, 'show');
-    }
-
-    @HostListener('mouseleave') toggleHide() {
-        const part = this.el.nativeElement.querySelector('.dropdown-menu');
-        this.renderer.removeClass(part, 'show');
-    }
+    // @HostListener('mouseleave') toggleHide() {
+    //     const part = this.el.nativeElement.querySelector('.dropdown-menu');
+    //     this.renderer.removeClass(part, 'show');
+    // }
 
 }
