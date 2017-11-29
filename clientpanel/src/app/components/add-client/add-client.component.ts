@@ -17,7 +17,7 @@ export class AddClientComponent implements OnInit {
     phone: '',
     balance: 0
   };
-  disableBalanceOnAdd: boolean = false;
+  disableBalanceOnAdd: Boolean = false;
 
   constructor(
     public router: Router,

@@ -11,8 +11,8 @@ import { Client } from '../../models/Client';
 export class ClientDetailsComponent implements OnInit {
   id: string;
   client: Client;
-  hasBalance: boolean = false;
-  showBalanceUpdateInput: boolean = false;
+  hasBalance: Boolean = false;
+  showBalanceUpdateInput: Boolean = false;
 
   constructor(
     public clientService: ClientService,
